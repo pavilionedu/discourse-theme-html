@@ -1,0 +1,212 @@
+# learning_course
+# key:         discourse_theme_development
+# /learning_course
+
+# learning_unit
+# course:       discourse_theme_development
+# number:       4
+# title:        Working with HTML
+# description:  This unit will teach you about working with HTML in Discourse themes. 
+#               This is the fourth unit in the Discourse Theme Development course. 
+#               Make sure you've completed the [Getting Started unit](https://github.com/pavilionedu/discourse-theme-introduction) 
+#               before starting this one.
+#
+#               When you're ready to start, clone the unit theme listed in the 
+#               references and start watching it on the Discourse Theme creator.
+# references:   https://github.com/pavilionedu/discourse-theme-html
+                https://theme-creator.discourse.org
+# /learning_unit
+
+# learning_step
+# unit:         discourse_theme_development.4
+# number:       1
+# title:        When do you work with HTML?
+# description:  There are a two reasons why you'd be working with HTML in a Discourse
+#               theme.
+#
+#               The most common one is that you want to insert a new element
+#               onto a page in Discourse, often a new header element or banner.
+#
+#               The other reason is that you want to change an existing element 
+#               
+#
+#               If you want to add an entirely new page to Discourse
+#               you need to use a plugin rather than a theme. Discourse Plugin 
+#               development works a bit differently and is not covered in this course.
+# /learning_step
+
+# learning_step
+# unit:         discourse_theme_development.4
+# number:       2
+# title:        How do you work with HTML?
+# description:  There are two ways to work with HTML in a Discourse theme: using
+#               the ``.html`` files in ``common``, ``desktop`` and ``mobile``, 
+#               which we saw in our Getting started unit, and working with Ember
+#               templates in your theme's ``javascripts`` folder.
+#
+#               Sometimes you don't need to know why some things are the way they
+#               are, however in this case it's important to understand the context
+#               for each method of adding HTML in Discourse, as it'll save you
+#               a lot of trouble and confusion.
+#
+#               So strap in, we're going to explore the structure of Discourse 
+#               HTML first before we write any of our own. If you haven't cloned 
+#               the main ``discourse/discourse`` repository to your computer yet, 
+#               now's the time to do it. Open it up in the same window as this 
+#               theme in your editor so you can easily look at the Discourse code 
+#               while working through this unit.
+# references:   https://github.com/discourse/discourse
+# /learning_step
+
+# learning_step
+# unit:         discourse_theme_development.3
+# number:       3
+# title:        How Discourse's HTML is constructed
+# description:  When you're looking at a Discourse forum, the HTML you see on the
+#               page comes from a few different places. 
+#
+#               Firstly, the "layout" of is found in a Ruby on Rails (Rails) view 
+#               layout. Open up ``discourse/app/views/layouts/application.html.erb`` 
+#               in your editor. This is the main HTML layout for Discourse. Have 
+#               a look through it. Some of it won't make much sense right now, 
+#               but you should see a few familiar things, like the ``<head>``, 
+#               ``<meta>`` and ``<body>`` tags.
+#
+#               Do a search for ``theme_lookup`` in the file and you'll see three 
+#               results. You may notice that two of the strings passed to ``theme_lookup``
+#               are the same as the names of two files we encountered in 
+#               "Getting Started", ``head_tag.html`` and `header.html``. Yup, the
+#               ``theme_lookup`` helper is used to insert the HTML you add in
+#               your theme's ``(common|desktop|mobile)/*.html`` files. 
+#
+#               You may notice that two ``.html`` files we saw in our Getting 
+#               Started theme are not in ``application.html.erb``: ``footer.html``.
+#               and ``after_header.html``. Go back to your local ``discourse`` 
+#               folder in your code editor and do a search for ``theme_lookup`` 
+#               on the entire ``discourse/app/views/layouts`` folder. You should 
+#               see our ``head_tag``, ``header`` and ``body`` appear in other 
+#               layouts, and that the ``footer`` appears in some others too.
+#
+#               These other layouts are used instead of the ``application.html.erb``
+#               in three cases worth mentioning (ignore the other layouts for now):
+#
+#               - ``crawler``: shown to search engine crawlers or when javascript is disabled;
+#               - ``no_ember``: shown on specific routes when ember is not needed; and
+#               - ``publish``: used for published pages.
+#
+#               Whenever you're adding HTML to the ``(common|desktop|mobile)/*.html``
+#               files, remember that your HTML is also appearing in these other
+#               layouts and being "read" for different purposes. To get a 
+#               sense of what one of the other layouts looks like go to
+#               [``https://theme-creator.discourse.org/?print=true``](https://theme-creator.discourse.org/?print=true)
+#               and you'll see the ``crawler`` layout. You'll notice that the 
+#               topic list is paginated! (the normal discourse topic list is 
+#               also paginated, it's just hidden by the infinite scroll).
+#
+#               After looking through the layouts, and their use of the 
+#               ``theme_lookup`` helper you may be left with (at least) two 
+#               questions:
+#
+#               - Where is the ``after_header.html`` inserted?
+#               - Where is the ``footer.html`` used in the Discourse seen by a 
+#                 normal user (i.e. our ``application.html.erb`` layout)?
+#
+#               The answer to both lies in the Discourse Ember app HTML, which 
+#               we'll turn to in the next step.
+# /learning_step
+
+# learning_step
+# unit:         discourse_theme_development.3
+# number:       4
+# title:        How Discourse's HTML is constructed (cont)
+# description:  Have a look again at the ``application.html.erb`` and find the
+#               ``<section id='main'></section>`` element. That is where the
+#               Discourse Ember app is "mounted" and where all the HTML you see
+#               on a normal desktop or mobile screen is added.
+#
+#               In your local ``discourse`` folder, open up 
+#               ``app/assets/javascripts/discourse/app/templates/application.hbs``
+#               This is the Discourse application template, which defines the 
+#               overall HTML structure for the Discourse Ember client. If you haven't
+#               worked with Ember or Handlebars templates before, take a moment
+#               to read through the "Introduction" to Handlebars linked in the 
+#               references below. Discourse currently uses something similar 
+#               to what's described in that guide.
+#
+#               A few things to note about our application template. First, let's
+#               answer the questions we asked at the end of the last step. Find
+#               the ``{{custom-html name="top"}}`` element. That's where our 
+#               ``after_header.html`` gets inserted (it's not important to 
+#               to understand how that works right now). Then find the
+#               ``{{custom-html name="footer"}}`` element. That's where our 
+#               ``footer.html`` gets added in our application layout (we've 
+#               already seen where it gets added in our other layouts). 
+#
+#               You'll notice that the footer element is wrapped in a handlebars 
+#               conditional. This is because most Discourse pages use infinite 
+#               scrolling, where content is automatically loaded when you reach 
+#               the bottom of the page. You normally don't want the footer to 
+#               show until you reach the very end of an infinitely scrollable 
+#               list. That's when that conditional will be true on most Discourse
+#               pages.
+#
+#               The other thing to notice at this stage is the ``{{site-header}}``
+#               and the ``{{outlet}}`` elements. As the name suggests, the 
+#               ``site-header`` is the header you see at the top of every page 
+#               in Discourse. It's an Ember Component. Ember Components are one 
+#               of the main things you'll work with when working with Ember HTML, 
+#               so take a moment to get your head around what a component is by 
+#               reading the introduction to the Component Class definition in the Ember
+#               docs in the references. Also, skim through the file names of the 
+#               the component templates folders to get a sense of the components
+#               Discourse has:
+#
+#               - ``app/assets/javascripts/discourse/app/components``
+#
+#               The ``{{outlet}}`` is where the HTML for different routes in
+#               Discourse get inserted. If you've never worked with a javascript
+#               framework, or any "Model View Controller" framework before and 
+#               you're not really sure what I mean by "routes", don't worry, 
+#               we're not going to get into that here. The main thing you need 
+#               to know now is that when you go between different pages like a
+#               topic list, a topic or a user profile, the ``{{outlet}}`` is 
+#               where the different HTML for those pages gets inserted. You  
+#               can find the HTML for each of those main pages here:
+#
+#               - ``app/assets/javascripts/discourse/app/templates/discovery.hbs``;
+#               - ``app/assets/javascripts/discourse/app/templates/topic.hbs``; and
+#               - ``app/assets/javascripts/discourse/app/templates/user.hbs``
+#
+# references:   https://handlebarsjs.com/guide/#what-is-handlebars
+#               https://api.emberjs.com/ember/release/classes/Component
+# /learning_step
+
+# learning_step
+# unit:         discourse_theme_development.3
+# number:       5
+# title:        How Discourse's HTML is constructed (cont)
+# description:  The last thing we're going to look at in our ``application.hbs``
+#               file is the plugin outlets. Look through the file and find all 
+#               the different places where a ``plugin-outlet`` is defined. The 
+#               main thing to pay attention to at this point is their ``name``, 
+#               e.g. ``above-site-header`` or ``below-site-header``.
+#
+#               A plugin outlet is a place where you can insert your own Ember 
+#               Component, from a theme (or a plugin). We'll go through how 
+#               you can use them in a later step. For now, do a search in the
+#               ``app/assets/javascripts/discourse/app/templates`` folder in 
+#               ``discourse`` for "plugin-outlet" and just skim through the list 
+#               of results. You'll see a lot of outlets with names which should 
+#               give you sense of where they are, like ``user-card-after-metadata`` 
+#               or ``after-topic-footer-buttons``. 
+#
+#               One of the practices that's good to cultivate as a developer is 
+#               using the search function on your code editor, along with a 
+#               sense of how naming conventions work. Often a good search with 
+#               some educated guesses based on naming conventions can save you a 
+#               lot of time when figuring out how something works, or where code 
+#               lives.
+#
+#               Ok, we're ready to start adding some of our own HTML, so head over
+#               to ``header.html`` for the next step.
+# /learning_step
