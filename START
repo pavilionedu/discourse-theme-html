@@ -59,7 +59,7 @@
 # /learning_step
 
 # learning_step
-# unit:         discourse_theme_development.3
+# unit:         discourse_theme_development.4
 # number:       3
 # title:        How Discourse's HTML is constructed
 # description:  When you're looking at a Discourse forum, the HTML you see on the
@@ -116,7 +116,7 @@
 # /learning_step
 
 # learning_step
-# unit:         discourse_theme_development.3
+# unit:         discourse_theme_development.4
 # number:       4
 # title:        How Discourse's HTML is constructed (cont)
 # description:  Have a look again at the ``application.html.erb`` and find the
@@ -182,7 +182,7 @@
 # /learning_step
 
 # learning_step
-# unit:         discourse_theme_development.3
+# unit:         discourse_theme_development.4
 # number:       5
 # title:        How Discourse's HTML is constructed (cont)
 # description:  The last thing we're going to look at in our ``application.hbs``
