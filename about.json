@@ -1,9 +1,7 @@
 {
-  "about_url": null,
-  "license_url": null,
-  "assets": {
-  },
+  "about_url": "https://github.com/pavilionedu/discourse-theme-html-one.git",
+  "license_url": "https://github.com/pavilionedu/discourse-theme-html-one/blob/master/LICENSE.txt",
   "name": "Discourse Theme HTML (One)",
-  "color_schemes": {
-  }
+  "authors": "Angus McLeod",
+  "theme_version": "0.1.0"
 }
