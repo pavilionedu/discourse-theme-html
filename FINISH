@@ -1,14 +1,14 @@
 # learning_step
 # unit:         discourse_theme_development.4
 # number:       10
-# review:       teacher
+# review:       peer
 # mark:         pass_change_fail
 # title:        Unit Quiz
 # description:  Ok, we're now ready to start adding some of our own HTML, but 
 #               before we leave this tour of the Discourse HTML, let's do a quick
 #               quiz:
 #
-#               1. If I wanted links in my forum footer for SEO purposes where
+# exercise:     1. If I wanted links in my forum footer for SEO purposes where
 #                  would I put them in a theme?
 #
 #               2. If I wanted to add a "notice" in the top section of my forum 

@@ -18,7 +18,6 @@
 #               them. If a step is marked ``peer review`` or ``teacher review`` 
 #               post a comment on the step with your answer and click "Request 
 #               Review" to notify your peers or teachers who can mark your 
-#               
 #
 #               There's a video of a teacher completing the unit in the final 
 #               step, which you'll be able to watch once all other steps are
@@ -39,10 +38,10 @@
 # unit:         discourse_theme_development.4
 # number:       1
 # title:        When do you work with HTML?
-# description:  There are a two reasons why you'd be working with HTML in a Discourse
-#               theme.
+# description:  There are a two main reasons why you'd be working with HTML in 
+#               a Discourse theme.
 #
-#               The most common one is that you want to insert a new element
+#               The most common reason is that you want to insert a new element
 #               onto a page in Discourse, often a new header element or banner.
 #               For examples of this, check out the Versatile Banner and the 
 #               Easy Footer theme components in the references.
@@ -67,7 +66,7 @@
 # title:        How do you work with HTML?
 # description:  There are two ways to work with HTML in a Discourse theme: using
 #               the ``.html`` files in ``common``, ``desktop`` and ``mobile``, 
-#               which we saw in our Getting started unit, and working with Ember
+#               which we saw in our Getting Started unit, and working with Ember
 #               templates in your theme's ``javascripts`` folder.
 #
 #               Sometimes you don't need to know why some things are the way they
@@ -133,8 +132,7 @@
 #               Yes, the ``theme_lookup`` helper is used to insert the HTML you 
 #               add in your theme's ``.html`` files.
 #
-#               Let's use a different ``.html`` file to see this in action again.
-#               Using a ``.html`` file that is inserted into the 
+# exercise:     Using a ``.html`` file that is inserted into the 
 #               ``application.html.erb`` layout, add this footer element so that
 #               it appears on every page in the forum, even on the topic lists.
 #
@@ -143,6 +141,8 @@
 #                 <h1>I'm a purple footer!</h1>
 #               </div>
 #               ```
+#
+#               Post evidence of your work in a comment.
 # /learning_step
 
 # learning_step
@@ -373,9 +373,7 @@
 #               some educated guesses based on naming conventions can save you a 
 #               lot of time when figuring out how something works, or where code 
 #               lives.
-#
-#               If you're reading this in the theme code, head over to FINISH for
-#               the final steps.
 # references:   https://meta.discourse.org/t/31001
 #               https://meta.discourse.org/t/32727
+# next_step:    FINISH
 # /learning_step
