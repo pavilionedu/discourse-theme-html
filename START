@@ -16,8 +16,8 @@
 #               If you're taking this unit on [Pavilion Education](https://education.thepavilion.io),
 #               mark the ``self review`` steps ``Complete`` when you've completed 
 #               them. If a step is marked ``peer review`` or ``teacher review`` 
-#               post a comment on the step with your answer and click "Request 
-#               Review" to notify your peers or teachers who can mark your 
+#               post a comment on the step with your answer and click "Submit"
+#               to notify your peers or teachers.
 #
 #               There's a video of a teacher completing the unit in the final 
 #               step, which you'll be able to watch once all other steps are
@@ -27,7 +27,7 @@
 #
 #               If you're reading this in the unit theme code, the last step in 
 #               a file will tell you where to go to find the next step (if there 
-#               is one). If you can't find it, do a search for ``learning_step`` 
+#               is one). If you can't find it, do a search for learning_step 
 #               in the theme folder in your code editor to see all the steps in 
 #               the unit. All units start in the START file and end in the 
 #               FINISH file.
@@ -189,7 +189,9 @@
 #               and being "read" for different purposes.
 #
 #               To get a sense of what one of the other layouts looks like go to
+#
 #               [``https://theme-creator.discourse.org/?print=true``](https://theme-creator.discourse.org/?print=true)
+#
 #               and you'll see the ``crawler.html.erb`` layout. You'll notice 
 #               that the topic list is paginated! The normal discourse topic 
 #               list is also paginated, but its pagination is not visible in the
