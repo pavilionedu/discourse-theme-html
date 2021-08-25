@@ -21,7 +21,7 @@
 # learning_step
 # unit:         discourse_theme_development.4
 # number:       11
-# visibility:   hidden:until_steps_completed
+# visibility:   hidden:until_previous_completed
 # title:        Unit Video
 # description:  This is where video demonstrating how to complete the unit goes
 #               when you're taking the unit on https://education.thepavilion.io
